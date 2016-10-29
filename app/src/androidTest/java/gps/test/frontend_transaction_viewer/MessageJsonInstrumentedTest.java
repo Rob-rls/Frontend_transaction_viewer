@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 
 import java.util.HashMap;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 
 @RunWith(AndroidJUnit4.class)
@@ -23,7 +23,7 @@ public class MessageJsonInstrumentedTest {
     }
 
     @Test
-    public void Message_takes_HashMap_and_returns_JSON() throws Exception {
+    public void convertToJson_takes_hashMap_returns_JSONObject() throws Exception {
         HashMap<String, Object> testTransactionMap = new HashMap<String, Object>();
         testTransactionMap.put("name", "Rob");
 
@@ -34,4 +34,19 @@ public class MessageJsonInstrumentedTest {
 
         assertEquals(expectedResult, testMessageString);
     }
+
 }
+
+
+//    public String messageData(Transaction transaction) throws JSONException {
+//
+//        JSONObject jsonObject = new JSONObject();
+//
+//        jsonObject.put("userId", convertToJSON(transaction.userData()));
+//        jsonObject.put("transaction", convertToJSON(transaction.transactionData()));
+//        jsonObject.put("location", convertToJSON(transaction.locationData()));
+//        jsonObject.put("device", convertToJSON(transaction.deviceData()));
+//
+//        return jsonObject.toString();
+//
+//    }

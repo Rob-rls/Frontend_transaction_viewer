@@ -1,8 +1,7 @@
 package gps.test.frontend_transaction_viewer;
 
-
-import org.json.JSONObject;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Set;
@@ -10,6 +9,19 @@ import java.util.Set;
 
 public class MessageJson {
 
+
+    public String messageData(Transaction transaction) throws JSONException {
+
+        JSONObject jsonObject = new JSONObject();
+
+        jsonObject.put("userId", convertToJSON(transaction.userData()));
+        jsonObject.put("transaction", convertToJSON(transaction.transactionData()));
+        jsonObject.put("location", convertToJSON(transaction.locationData()));
+        jsonObject.put("device", convertToJSON(transaction.deviceData()));
+
+        return jsonObject.toString();
+
+    }
 
     public JSONObject convertToJSON(HashMap<String, Object> transactionData) {
         JSONObject transactionJson = new JSONObject();
