@@ -9,21 +9,22 @@ import java.util.Set;
 
 public class MessageJson {
 
-
-    public String messageData(Transaction transaction) throws JSONException {
+    public static JSONObject messageData(Transaction transaction) {
 
         JSONObject jsonObject = new JSONObject();
 
-        jsonObject.put("userId", convertToJSON(transaction.userData()));
-        jsonObject.put("transaction", convertToJSON(transaction.transactionData()));
-        jsonObject.put("location", convertToJSON(transaction.locationData()));
-        jsonObject.put("device", convertToJSON(transaction.deviceData()));
-
-        return jsonObject.toString();
-
+        try {
+            jsonObject.put("device", convertToJSON(transaction.deviceData()));
+            jsonObject.put("location", convertToJSON(transaction.locationData()));
+            jsonObject.put("transaction", convertToJSON(transaction.transactionData()));
+            jsonObject.put("userId", convertToJSON(transaction.userData()));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
     }
 
-    public JSONObject convertToJSON(HashMap<String, Object> transactionData) {
+    public static JSONObject convertToJSON(HashMap<String, Object> transactionData) {
         JSONObject transactionJson = new JSONObject();
         Set setOfKeys = transactionData.keySet();
         for ( Object key : setOfKeys) {

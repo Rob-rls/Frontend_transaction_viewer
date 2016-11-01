@@ -20,6 +20,7 @@
     <Button
         android:id="@+id/request_button"
         android:text="Generate Request"
+        android:onClick="onGenerateRequestClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/response"
