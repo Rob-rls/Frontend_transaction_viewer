@@ -13,6 +13,8 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.core.IsNot.not;
 
 
 @RunWith(AndroidJUnit4.class)
@@ -23,11 +25,11 @@ public class MainActivityInstrumentedTest {
 
 
     @Test
-    public void Button_Click_updtest_request_and_log() throws Exception {
+    public void when_connected_to_network_response_displayed() throws Exception {
         onView(withId(R.id.request_button))
                 .perform(click());
         onView(withId(R.id.response))
-                .check(matches(withText("Waiting For Server to Respond")));
+                .check(matches(withText(not(containsString("Waiting For Server to Respond")))));
     }
 
 }

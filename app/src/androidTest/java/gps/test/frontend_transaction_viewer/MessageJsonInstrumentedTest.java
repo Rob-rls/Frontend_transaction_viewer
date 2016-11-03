@@ -36,17 +36,3 @@ public class MessageJsonInstrumentedTest {
     }
 
 }
-
-
-//    public String messageData(Transaction transaction) throws JSONException {
-//
-//        JSONObject jsonObject = new JSONObject();
-//
-//        jsonObject.put("userId", convertToJSON(transaction.userData()));
-//        jsonObject.put("transaction", convertToJSON(transaction.transactionData()));
-//        jsonObject.put("location", convertToJSON(transaction.locationData()));
-//        jsonObject.put("device", convertToJSON(transaction.deviceData()));
-//
-//        return jsonObject.toString();
-//
-//    }
